@@ -28,17 +28,16 @@ extern "C" {
 
 #include "mycore/myosi.h"
 
-struct mcobject_chunk {
+typedef struct mcobject_chunk {
     unsigned char *begin;
     size_t length;
     size_t size;
     
     struct mcobject_chunk *next;
     struct mcobject_chunk *prev;
-}
-typedef mcobject_chunk_t;
+} mcobject_chunk_t;
 
-struct mcobject {
+typedef struct mcobject {
     mcobject_chunk_t *chunk;
     
     void  **cache;
@@ -47,8 +46,7 @@ struct mcobject {
     
     size_t struct_size;
     size_t chunk_size;
-}
-typedef mcobject_t;
+} mcobject_t;
 
 
 mcobject_t * mcobject_create(void);

@@ -28,18 +28,16 @@
 extern "C" {
 #endif
 
-enum mcsync_status {
+typedef enum mcsync_status {
     MCSYNC_STATUS_OK                 = 0x00,
     MCSYNC_STATUS_NOT_OK             = 0x01,
     MCSYNC_STATUS_ERROR_MEM_ALLOCATE = 0x02
-}
-typedef mcsync_status_t;
+} mcsync_status_t;
 
-struct mcsync {
+typedef struct mcsync {
     int* spinlock;
     void* mutex;
-}
-typedef mcsync_t;
+} mcsync_t;
 
 mcsync_t * mcsync_create(void);
 mcsync_status_t mcsync_init(mcsync_t* mcsync);

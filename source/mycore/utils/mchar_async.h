@@ -33,27 +33,25 @@ extern "C" {
 
 typedef struct mchar_async_node mchar_async_node_t;
 
-struct mchar_async_cache_node {
+typedef struct mchar_async_cache_node {
     void  *value;
     size_t size;
     
     size_t left;
     size_t right;
     size_t parent;
-}
-typedef mchar_async_cache_node_t;
+} mchar_async_cache_node_t;
 
-struct mchar_async_chunk {
+typedef struct mchar_async_chunk {
     char  *begin;
     size_t length;
     size_t size;
     
     struct mchar_async_chunk *next;
     struct mchar_async_chunk *prev;
-}
-typedef mchar_async_chunk_t;
+} mchar_async_chunk_t;
 
-struct mchar_async_cache {
+typedef struct mchar_async_cache {
     mchar_async_cache_node_t *nodes;
     size_t  nodes_size;
     size_t  nodes_length;
@@ -64,15 +62,14 @@ struct mchar_async_cache {
     size_t *index;
     size_t index_length;
     size_t index_size;
-}
-typedef mchar_async_cache_t;
+} mchar_async_cache_t;
 
 struct mchar_async_node {
     mchar_async_chunk_t *chunk;
     mchar_async_cache_t cache;
 };
 
-struct mchar_async {
+typedef struct mchar_async {
     size_t  origin_size;
     
     mchar_async_chunk_t **chunks;
@@ -92,8 +89,7 @@ struct mchar_async {
     size_t nodes_cache_size;
     
     mcsync_t *mcsync;
-}
-typedef mchar_async_t;
+} mchar_async_t;
 
 
 mchar_async_t * mchar_async_create(void);

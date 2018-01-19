@@ -82,7 +82,7 @@ extern "C" {
  for myecma             060000..06ffff; MyECMA_STATUS_OK      == 0x000000
  not occupied           070000..
 */
-enum mycore_status {
+typedef enum mycore_status {
     MyCORE_STATUS_OK                                   = 0x0000,
     MyCORE_STATUS_ERROR                                = 0x0001,
     MyCORE_STATUS_ERROR_MEMORY_ALLOCATION              = 0x0002,
@@ -116,8 +116,7 @@ enum mycore_status {
     MyCORE_STATUS_ASYNC_ERROR_LOCK                     = 0x0060,
     MyCORE_STATUS_ASYNC_ERROR_UNLOCK                   = 0x0061,
     MyCORE_STATUS_ERROR_NO_FREE_SLOT                   = 0x0062,
-}
-typedef mycore_status_t;
+} mycore_status_t;
 
 typedef unsigned int mystatus_t;
 

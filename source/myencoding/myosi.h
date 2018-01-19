@@ -43,7 +43,7 @@ extern "C" {
 // https://encoding.spec.whatwg.org/#legacy-multi-byte-korean-encodings
 // https://encoding.spec.whatwg.org/#legacy-miscellaneous-encodings
 
-enum myencoding_list {
+typedef enum myencoding_list {
     MyENCODING_DEFAULT        = 0x00,
     //MyENCODING_AUTO           = 0x01,  // future
     MyENCODING_NOT_DETERMINED = 0x02,
@@ -87,16 +87,14 @@ enum myencoding_list {
     MyENCODING_WINDOWS_874    = 0x28,
     MyENCODING_X_MAC_CYRILLIC = 0x29,
     MyENCODING_LAST_ENTRY     = 0x2a
-}
-typedef myencoding_t;
+} myencoding_t;
 
-enum myencoding_status {
+typedef enum myencoding_status {
     MyENCODING_STATUS_OK       = 0x0000,
     MyENCODING_STATUS_ERROR    = 0x0001,
     MyENCODING_STATUS_CONTINUE = 0x0002,
     MyENCODING_STATUS_DONE     = 0x0004
-}
-typedef myencoding_status_t;
+} myencoding_status_t;
 
 typedef struct myencoding_result myencoding_result_t;
 typedef struct myencoding_trigram myencoding_trigram_t;
